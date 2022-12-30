@@ -1,0 +1,466 @@
+<!DOCTYPE HTML>
+<html>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cezer's Discord site</title>
+
+<head>
+    <script>
+        window.addEventListener('load', function () {
+            setTimeout(load, 700)
+        })
+        function load() {
+            document.getElementById("loading").style.display = "none";
+            document.getElementById("loading2").style.display = "block";
+            setTimeout(showtaskbar, 500)
+            document.getElementById("appcontainer").style.display = "block";
+            document.getElementById("welcome").style.display = "block";
+        }
+        function showtaskbar() {
+            document.getElementById("taskbar").style.display = "block"
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri&display=swap');
+
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            background-image: url('img/wr1.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            font-size: 16px;
+            overflow: hidden;
+            color: #fff;
+        }
+
+        :root {
+            --accent: 219, 171, 90;
+            --lightdark: #1a1a1a;
+            --lightdarkb: rgb(20, 20, 20, 0.4);
+            --lightdark2: #000000;
+            --font: #fff;
+        }
+
+        #loading {
+            z-index: 9;
+        }
+
+        #loading,
+        #loading2 {
+            position: fixed;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            top: 0px;
+            background-color: var(--lightdark);
+            display: block;
+            text-align: center;
+        }
+
+        #loading2 {
+            z-index: -3;
+            opacity: 0%;
+            display: none;
+            animation: fadein 1s;
+        }
+
+        @keyframes fadein {
+            0% {
+                opacity: 100%;
+                z-index: 9;
+            }
+
+            99% {
+                opacity: 1%;
+                z-index: 9;
+            }
+
+            100% {
+                opacity: 0%;
+                z-index: -3;
+            }
+        }
+
+        #taskbar {
+            position: fixed;
+            left: 8px;
+            right: 8px;
+            bottom: 8px;
+            border-radius: 20px;
+            height: 24px;
+            padding: 6px;
+            background-color: var(--lightdarkb);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid var(--lightdark);
+            display: none;
+            animation: taskbar .5s;
+        }
+
+        @keyframes taskbar {
+            0% {
+                bottom: -50px;
+                opacity: 10%;
+            }
+
+            100% {
+                bottom: 8px;
+                opacity: 100%;
+            }
+        }
+
+        #appcontainer {
+            position: fixed;
+            left: 8px;
+            top: 8px;
+            right: 8px;
+            bottom: 8px;
+            border-radius: 12px;
+            background-color: var(--lightdarkb);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid var(--lightdark);
+            padding: 16px;
+            overflow: scroll !important;
+            text-align: center;
+            display: none;
+        }
+
+        .appframe {
+            display: none;
+        }
+
+        p {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .app {
+            padding: 6px 12px;
+            border: none;
+            margin: 1px;
+            border-radius: 10px;
+            font-size: 15px;
+            text-align: center;
+            background: rgba(var(--accent), 1.0);
+            font-family: 'Hind Siliguri', sans-serif;
+            transition: .1s;
+            color: #fff;
+        }
+
+        .app:hover {
+            background: rgba(var(--accent), 0.7);
+        }
+
+        .app:active {
+            background: rgba(var(--accent), 0.4);
+        }
+
+        ::placeholder {
+            /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: #f6f6f6;
+            opacity: 1;
+            /* Firefox */
+        }
+
+        .h1 {
+            font-size: 24px;
+        }
+
+        .textbox {
+            width: 95%;
+        }
+
+        .textbox:hover {
+            background: rgba(var(--accent), 1.0) !important;
+        }
+
+        .textbox:active {
+            background: rgba(var(--accent), 1.0) !important;
+        }
+
+        .apphome {
+            width: 70px;
+            height: 70px;
+            padding: 15px;
+            margin: 2px;
+            background-color: var(--lightdarkb);
+            border-radius: 10px;
+            font-size: 40px;
+            border: none;
+            transition: .2s;
+        }
+
+        .apphome:hover {
+            background-color: var(--lightdark);
+        }
+
+        .apphome:active {
+            background-color: rgba(var(--accent), .3);
+        }
+
+        .wider {
+            width: 99%;
+            border-radius: 4px;
+        }
+
+        .widertop {
+            border-top-right-radius: 16px !important;
+            border-top-left-radius: 16px !important;
+            border-bottom-right-radius: 4px !important;
+            border-bottom-left-radius: 4px !important;
+        }
+
+        .widerbottom {
+            border-bottom-right-radius: 16px !important;
+            border-bottom-left-radius: 16px !important;
+            border-top-right-radius: 4px !important;
+            border-top-left-radius: 4px !important;
+        }
+
+        .widerall {
+            border-radius: 16px !important;
+        }
+
+        .wider0 {
+            width: 99%;
+            border-bottom-right-radius: 14px !important;
+            border-bottom-left-radius: 14px !important;
+            border-top-right-radius: 14px !important;
+            border-top-left-radius: 14px !important;
+
+        }
+
+        #howtouse,
+        #setup,
+        #privacy {
+            display: none;
+        }
+
+        a {
+            color: #fff;
+            transition: 0.05;
+        }
+
+        a:hover {
+            color: #999;
+        }
+
+        a:active {
+            color: rgba(var(--accent), 1.0);
+        }
+
+        .line-wobble {
+            --uib-size: 120px;
+            --uib-speed: 1.55s;
+            --uib-color: rgba(var(--accent), 1.0);
+            --uib-line-weight: 6px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: var(--uib-line-weight);
+            width: var(--uib-size);
+            border-radius: calc(var(--uib-line-weight) / 2);
+            overflow: hidden;
+            transform: translate3d(0, 0, 0);
+        }
+
+        .line-wobble::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: var(--uib-color);
+            opacity: 0.1;
+        }
+
+        .line-wobble::after {
+            content: '';
+            height: 100%;
+            width: 100%;
+            border-radius: calc(var(--uib-line-weight) / 2);
+            animation: wobble var(--uib-speed) ease-in-out infinite;
+            transform: translateX(-90%);
+            background-color: var(--uib-color);
+        }
+
+        @keyframes wobble {
+
+            0%,
+            100% {
+                transform: translateX(-90%);
+            }
+
+            50% {
+                transform: translateX(90%);
+            }
+        }
+
+        .center {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #settings {
+            width: 320px;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        .popup {
+            z-index: 8;
+            background-color: var(--lightdarkb);
+            color: var(--font);
+            text-align: center;
+            min-height: 70px;
+            min-width: 90px;
+            max-height: 500px;
+            max-width: 600px;
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            border-radius: 12px;
+            box-shadow: 0 0 24px 24px rgba(0, 0, 0, 0.25);
+            border: 1px solid var(--lightdark);
+            display: none;
+            padding: 8px;
+        }
+
+        .popup {
+            position: absolute;
+            overflow: auto;
+        }
+
+        .popup-header {
+            padding: 12px 14px;
+            z-index: 10;
+            background-color: var(--lightdark);
+            color: #fff;
+            margin: -8px;
+            margin-bottom: 4px;
+        }
+
+        .popup .resizer-right {
+            width: 6px;
+            height: 100%;
+            background: transparent;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            cursor: e-resize;
+        }
+
+        .popup .resizer-bottom {
+            width: 100%;
+            height: 6px;
+            background: transparent;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            cursor: n-resize;
+        }
+
+        .popup .resizer-both {
+            width: 6px;
+            height: 6px;
+            background: transparent;
+            z-index: 10;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            cursor: nw-resize;
+        }
+
+        .popup * {
+            -webkit-touch-callout: none;
+            /* iOS Safari */
+            -webkit-user-select: none;
+            /* Safari */
+            -khtml-user-select: none;
+            /* Konqueror HTML */
+            -moz-user-select: none;
+            /* Firefox */
+            -ms-user-select: none;
+            /* Internet Explorer/Edge */
+            user-select: none;
+            /* Non-prefixed version, currently */
+        }
+
+        #reportframe {
+            position: flex;
+            width: 99%;
+            border-radius: 4px;
+            height: 80%;
+        }
+
+        #language {
+            overflow: scroll;
+        }
+        .cats {
+            height: 150px;
+            width: auto;
+        }
+    </style>
+</head>
+<div id="loading">
+    <div class="center">
+        <div class="line-wobble"></div>
+    </div>
+</div>
+<div id="loading2">
+    <div class="center">
+        <div class="line-wobble"></div>
+    </div>
+</div>
+<div id="appcontainer">
+    <div id="welcome" class="appframe">
+        <div id="language">
+            <p class="h1">Language</p>
+            <button class="app wider widertop" onclick="howtouse();">English</button>
+            <button class="app wider" onclick="chinese();howtouse();">中國人</button>
+            <button class="app wider" onclick="spanish();howtouse();">Español</button>
+            <button class="app wider" onclick="french();howtouse();">Français</button>
+            <button class="app wider" onclick="german();howtouse();">Deutsch</button>
+            <button class="app wider" onclick="polish();howtouse();">Polski</button>
+            <button class="app wider" onclick="romanian();howtouse();">Română</button>
+            <button class="app wider" onclick="russian();howtouse();">Русский</button>
+            <button class="app wider widerbottom" onclick="serbian();">Српски</button>
+        </div>
+        <div id="homescreen" class="appframe">
+            <p class="h1">Hello!</p>
+            <p>Welcome to Cezer's discord site.</p>
+            <p>Do you want to report someome anonymously, join, or look at all of the cats in HD?</p>
+            <p>It's <a class="clock"></a>.</p>
+            <button class="app wider widertop" onclick="window.location.href = 'https://forms.gle/rNsZ7k238nXFw62Q6'">Report someone anonymously</button>
+            <button class="app wider" onclick="window.location.href = 'https://discord.gg/qKDqv34wyE'">Join the
+                server</button>
+            <button class="app wider widerbottom" onclick="cats();">Look at the cats</button>
+        </div>
+        <div id="cats" class="appframe">
+            <img class="cats" src="img/cat1.png"></img>
+            <img class="cats" src="img/cat2.png"></img>
+            <img class="cats" src="img/cat3.png"></img>
+            <img class="cats" src="img/cat4.png"></img>
+            <img class="cats" src="img/cat5.png"></img>
+            <img class="cats" src="img/cat6.png"></img>
+            <img class="cats" src="img/cat7.png"></img>
+            <button class="app wider widerall" onclick="nocats();">I'm done</button>
+        </div>
+    </div>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="core.js"></script>
+    <script type="text/javascript"
+        src="https://translate.google.com/translate_a/element.js?cb=gtElInit&amp;hl=en&amp;client=wt"
+        type="text/javascript"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+
+</html>
